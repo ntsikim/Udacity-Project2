@@ -24,6 +24,17 @@ nltk.download(['punkt', 'wordnet'])
 warnings.filterwarnings("ignore", category=UndefinedMetricWarning)
 
 def load_data(database_filepath):
+    """
+    Load data from SQLite database.
+
+    Args:
+    database_filepath: str. Filepath for the database file.
+
+    Returns:
+    X: dataframe. Features dataset.
+    Y: dataframe. Target dataset.
+    category_names: list. List of target category names.
+    """
     engine = create_engine(f'sqlite:///{database_filepath}')
     df = pd.read_sql_table('DisasterMessages', engine)
     X = df['message']
@@ -31,6 +42,15 @@ def load_data(database_filepath):
     return X, Y, Y.columns
 
 def tokenize(text):
+    """
+    Tokenize text data.
+
+    Args:
+    text: str. Text data to be tokenized.
+
+    Returns:
+    clean_tokens: list. List of cleaned tokens.
+    """
     url_regex = 'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
     detected_urls = re.findall(url_regex, text)
     for url in detected_urls:
@@ -47,6 +67,12 @@ def tokenize(text):
     return clean_tokens
 
 def build_model():
+    """
+    Build machine learning pipeline and perform grid search.
+
+    Returns:
+    cv: GridSearchCV. Grid search model object.
+    """
     pipeline = Pipeline([
         ('vect', CountVectorizer(tokenizer=tokenize)),
         ('tfidf', TfidfTransformer()),
@@ -63,6 +89,15 @@ def build_model():
     return cv
 
 def evaluate_model(model, X_test, Y_test, category_names):
+    """
+    Evaluate model performance and print classification report.
+
+    Args:
+    model: model object. Trained model.
+    X_test: dataframe. Test features dataset.
+    Y_test: dataframe. Test target dataset.
+    category_names: list. List of target category names.
+    """
     Y_pred = model.predict(X_test)
     for i, category in enumerate(category_names):
         precision, recall, f1, _ = precision_recall_fscore_support(Y_test[:, i], Y_pred[:, i], average='weighted')
@@ -74,9 +109,19 @@ def evaluate_model(model, X_test, Y_test, category_names):
         print(f"\tF1-score: {f1:.2f}\n")
 
 def save_model(model, model_filepath):
+    """
+    Save the model as a pickle file.
+
+    Args:
+    model: model object. Trained model.
+    model_filepath: str. Filepath to save the pickle file.
+    """
     joblib.dump(model, model_filepath)
 
 def main():
+    """
+    Main function to load data, build model, train model, evaluate model, and save model.
+    """
     if len(sys.argv) == 3:
         database_filepath, model_filepath = sys.argv[1:]
 
@@ -103,7 +148,6 @@ def main():
               'as the first argument and the filepath of the pickle file to '\
               'save the model to as the second argument. \n\nExample: python '\
               'train_classifier.py ../data/DisasterResponse.db classifier.pkl')
-
 
 if __name__ == '__main__':
     main()

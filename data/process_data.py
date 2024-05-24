@@ -49,8 +49,15 @@ def clean_data(df):
     # Concatenate the original dataframe with the new `categories` dataframe
     df = pd.concat([df, categories], axis=1)
     
+    # Drop rows with related column values of 2
+    df = df[df['related'] != 2]
+    
     # Drop duplicates
     df = df.drop_duplicates()
+    
+    # Assert statements to check data integrity
+    assert df.duplicated().sum() == 0, "There are duplicate rows in the dataframe."
+    assert df['related'].isin([0, 1]).all(), "There are values other than 0 and 1 in the 'related' column."
     
     return df
 

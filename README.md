@@ -179,54 +179,54 @@ relationships.
 Based on the categories identified by the machine learning algorithm,
 here are some suggested organizations to connect with:
 
--   Related: General disaster relief organizations such as the Red Cross
+-   **Related**: General disaster relief organizations such as the Red Cross
     or FEMA.
 
--   Request: Local emergency services (police, fire department, medical
+-   **Request**: Local emergency services (police, fire department, medical
     services).
 
--   Aid Related: International NGOs like Oxfam, CARE, or local community
+-   **Aid Related**: International NGOs like Oxfam, CARE, or local community
     aid groups.
 
--   Medical Help/Medical Products: Hospitals, WHO, Doctors Without
+-   **Medical Help/Medical Products**: Hospitals, WHO, Doctors Without
     Borders.
 
--   Search and Rescue: Local search and rescue teams, Coast Guard.
+-   **Search and Rescue**: Local search and rescue teams, Coast Guard.
 
--   Security: Local law enforcement agencies, National Guard.
+-   **Security**: Local law enforcement agencies, National Guard.
 
--   Water/Food/Shelter: UNHCR, local food banks, shelters, and
+-   **Water/Food/Shelter**: UNHCR, local food banks, shelters, and
     humanitarian aid organizations.
 
--   Clothing: Local charities, Goodwill, Salvation Army.
+-   **Clothing**: Local charities, Goodwill, Salvation Army.
 
--   Money: Financial aid organizations, crowdfunding platforms like
+-   **Money**: Financial aid organizations, crowdfunding platforms like
     GoFundMe.
 
--   Missing People: Missing persons organizations, law enforcement
+-   **Missing People**: Missing persons organizations, law enforcement
     agencies.
 
--   Refugees: UNHCR, local refugee assistance programs.
+-   **Refugees**: UNHCR, local refugee assistance programs.
 
--   Death: Local authorities, morgues, and related services.
+-   **Death**: Local authorities, morgues, and related services.
 
--   Infrastructure Related: Local government agencies responsible for
+-   **Infrastructure Related**: Local government agencies responsible for
     infrastructure repair.
 
--   Transport: Local transportation authorities.
+-   **Transport**: Local transportation authorities.
 
--   Electricity: Local power companies and utility services.
+-   **Electricity**: Local power companies and utility services.
 
--   Tools: Local hardware stores, volunteer groups for rebuilding
+-   **Tools**: Local hardware stores, volunteer groups for rebuilding
     efforts.
 
--   Hospitals: Nearby hospitals and clinics.
+-   **Hospitals**: Nearby hospitals and clinics.
 
--   Shops: Local businesses and retail stores.
+-   **Shops**: Local businesses and retail stores.
 
--   Aid Centers: Local aid distribution centers and shelters.
+-   **Aid Centers**: Local aid distribution centers and shelters.
 
--   Weather Related: Meteorological services, weather forecasting
+-   **Weather Related**: Meteorological services, weather forecasting
     agencies.
 
 ## Dataset Imbalance
@@ -239,11 +239,11 @@ the performance of the machine learning model in the following ways:
 
 ### Impact of Imbalance
 
--   Bias Towards Majority Classes: The model may become biased towards
+-   **Bias Towards Majority Classes**: The model may become biased towards
     the majority classes, leading to higher accuracy for these
     categories but poor performance on minority classes.
 
--   Evaluation Metrics: Metrics like accuracy can be misleading. A model
+-   **Evaluation Metrics**: Metrics like accuracy can be misleading. A model
     that predicts the majority class well but fails on minority classes
     can still appear to perform well overall.
 
@@ -251,24 +251,24 @@ the performance of the machine learning model in the following ways:
 
 To address the imbalance, the following strategies can be employed:
 
--   Resampling Techniques: Use oversampling for minority classes or
+-   **Resampling Techniques**: Use oversampling for minority classes or
     undersampling for majority classes to balance the dataset.
 
--   Class Weights: Assign higher weights to minority classes in the loss
+-   **Class Weights**: Assign higher weights to minority classes in the loss
     function to penalize misclassifications more heavily.
 
--   Evaluation Metrics: Emphasize precision, recall, and F1-score over
+-   **Evaluation Metrics**: Emphasize precision, recall, and F1-score over
     accuracy, especially for minority classes.
 
 ### Precision vs. Recall
 
 Depending on the application, you might prioritize precision or recall:
 
--   Precision: High precision is important if false positives are
+-   **Precision**: High precision is important if false positives are
     costly. For example, misclassifying a non-urgent message as urgent
     could lead to unnecessary resource allocation.
 
--   Recall: High recall is crucial if missing a true positive is costly.
+-   **Recall**: High recall is crucial if missing a true positive is costly.
     For instance, failing to identify a request for medical help could
     be life-threatening.
 
@@ -284,3 +284,21 @@ minimized to the extent possible.
 -   Figure Eight for providing the dataset.
 
 -   Scikit-learn for the machine learning tools.
+
+## Troubleshooting
+
+If you encounter any issues while running the project, here are some common problems and solutions:
+
+-	ModuleNotFoundError: Ensure all dependencies are installed by running pip install -r requirements.txt.
+-	Database Not Found: Ensure the correct file paths are provided for the datasets and the database.
+-	Web App Not Running: Ensure no other application is using the port 3000. You can change the port in run.py if needed.
+
+## Contributing
+
+Contributions to this project are welcome. If you would like to contribute, please fork the repository and submit a pull request with your changes.
+
+## Future Work
+
+-	**Improve Model Performance**: Experiment with different machine learning algorithms and parameter tuning to improve model performance.
+-	**Add More Visualizations**: Include additional visualizations in the web app to provide more insights into the data.
+-	**Deploy the App**: Deploy the web app on a cloud platform like AWS or Heroku for wider accessibility.
