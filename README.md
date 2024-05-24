@@ -33,12 +33,12 @@ the necessary dependencies.
 
 1.  Clone the repository:
 
-git clone
-<https://github.com/ntsikim/Udacity-Project2.git>
+    git clone
+    <https://github.com/ntsikim/Udacity-Project2.git>
 
 2.  Install the necessary dependencies:
 
-pip install -r requirements.txt
+    pip install -r requirements.txt
 
 ## Project Motivation
 
@@ -88,18 +88,18 @@ Follow these steps to set up and run the project:
 1.  Run the ETL pipeline to process the data and save it to an SQLite
     database:
 
-> python data/process_data.py data/disaster_messages.csv
-> data/disaster_categories.csv data/DisasterResponse.db
+    > python data/process_data.py data/disaster_messages.csv
+    > data/disaster_categories.csv data/DisasterResponse.db
 
 2.  Run the machine learning pipeline to train the classifier and save
     the model:
 
-python models/train_classifier.py data/DisasterResponse.db
-models/classifier.pkl
+    python models/train_classifier.py data/DisasterResponse.db
+    models/classifier.pkl
 
 3.  Run the web app:
 
-python app/run.py
+    python app/run.py
 
 4.  Open a web browser and go to http://localhost:3000/
 
