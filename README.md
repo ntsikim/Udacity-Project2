@@ -26,6 +26,12 @@ categories, enabling them to understand the type of help required.
 
 -   [Acknowledgements](#acknowledgements)
 
+-	[Troubleshooting](#troubleshooting)
+
+-	[Contributing](#contributing)
+
+-	[Future Work](#future-work)
+
 ## Installation
 
 To run this project, you\'ll need to clone the repository and install
@@ -289,9 +295,9 @@ minimized to the extent possible.
 
 If you encounter any issues while running the project, here are some common problems and solutions:
 
--	ModuleNotFoundError: Ensure all dependencies are installed by running pip install -r requirements.txt.
--	Database Not Found: Ensure the correct file paths are provided for the datasets and the database.
--	Web App Not Running: Ensure no other application is using the port 3000. You can change the port in run.py if needed.
+-	**ModuleNotFoundError**: Ensure all dependencies are installed by running pip install -r requirements.txt.
+-	**Database Not Found**: Ensure the correct file paths are provided for the datasets and the database.
+-	**Web App Not Running**: Ensure no other application is using the port 3000. You can change the port in run.py if needed.
 
 ## Contributing
 
